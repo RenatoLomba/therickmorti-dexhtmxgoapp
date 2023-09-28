@@ -53,7 +53,7 @@ func removeDuplicates(characters []Character) []Character {
 func main() {
 	log.Println("Starting server on port 3000...")
 
-	jsonFile, err := os.Open("data.json")
+	jsonFile, err := os.Open("rick_and_morty_dataset.json")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -76,7 +76,7 @@ func main() {
 		AllowCredentials: true,
 		MaxAge:           300,
 	}))
-	mux.Handle("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
+	mux.Handle("/images/*", http.StripPrefix("/images/", http.FileServer(http.Dir("./images"))))
 	mux.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		data := map[string][]Character{
 			"Characters": uniqueCharacters,
