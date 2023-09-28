@@ -1,0 +1,20 @@
+{{ range .Characters }}
+<div
+  class="flex flex-col flex-wrap justify-center items-center bg-white rounded-2xl max-w-xs overflow-hidden p-4 border border-white h-full w-full"
+>
+  <img
+    src="http://localhost:3000/static/images/{{ .Id }}.jpeg"
+    class="rounded-2xl h-full w-full"
+  />
+  <div class="flex flex-col text-xs gap-2 p-4 h-full w-full my-auto">
+    <h3 class="mt-4 font-bold text-center text-4xl drop-shadow-2xl">
+      {{ .Name }}
+    </h3>
+    <p><strong>Id</strong>: {{ .Id }}</p>
+    <p><strong>Species</strong>: {{ .Species }}</p>
+    <p><strong>Location</strong>: {{ .Location.Name }}</p>
+    <p><strong>Episodes:</strong> {{ len .Episode }}</p>
+    <p><strong>Status</strong>: {{ .Status }}</p>
+  </div>
+</div>
+{{ end }}
